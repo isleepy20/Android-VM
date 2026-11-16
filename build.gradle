@@ -1,6 +1,0 @@
-// Root build.gradle should only contain global configurations or tasks if needed.
-// Repositories are managed centrally in settings.gradle.
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
