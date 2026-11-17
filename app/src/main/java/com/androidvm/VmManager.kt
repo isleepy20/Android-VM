@@ -1,16 +1,16 @@
-package com.vm.manager
+package com.androidvm
 
 import android.util.Log
 import java.io.File
 
 class VmManager {
-    var ramMegabytes: Int = 2048 // Default 2GB RAM
-    var cpuCores: Int = 2        // Default 2 Cores
-    var isoPath: String = ""     // Target ISO file path
+    var ramMegabytes: Int = 2048
+    var cpuCores: Int = 2
+    var isoPath: String = ""
     var isRunning: Boolean = false
     var isPaused: Boolean = false
 
-    private var process: Process? = qemuProcess@null
+    private var process: Process? = null
 
     fun configureSpecs(ram: Int, cores: Int, iso: String) {
         ramMegabytes = ram
@@ -21,7 +21,6 @@ class VmManager {
 
     fun playVm(onOutput: (String) -> Unit) {
         if (isRunning && isPaused) {
-            // Resume logic if suspended
             isPaused = false
             onOutput("\n[VM Resumed]\n")
             return
@@ -67,7 +66,6 @@ class VmManager {
 
     fun pauseVm(onOutput: (String) -> Unit) {
         if (!isRunning) return
-        // QEMU background signal or state flag toggle
         isPaused = true
         onOutput("\n[VM Paused]\n")
     }
