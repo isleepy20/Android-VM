@@ -1,9 +1,8 @@
-package com.vm.manager
+package com.androidvm
 
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
